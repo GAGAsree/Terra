@@ -3,10 +3,16 @@ provider "aws" {
   access_key = "AKIAVMFWVN35PU6A6M4R"
   secret_key = "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"
 }
-resource "aws_opsworks_rds_db_instance" "my_instance" {
-  stack_id            = aws_opsworks_stack.my_stack.id
-  rds_db_instance_arn = aws_db_instance.my_instance.arn
-  db_user             = "subhashini"
-  db_password         = "asdf1234"
+resource "aws_db_instance" "default" {
+  allocated_storage    = 10
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t3.micro"
+  name                 = "mydb"
+  username             = "foo"
+  password             = "foobarbaz"
+  parameter_group_name = "default.mysql5.7"
+  skip_final_snapshot  = true
 }
+
 
