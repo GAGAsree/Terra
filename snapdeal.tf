@@ -9,4 +9,4 @@ resource "aws_opsworks_rds_db_instance" "my_instance" {
   db_user             = "subhashini"
   db_password         = "asdf1234"
 }
-}
+
